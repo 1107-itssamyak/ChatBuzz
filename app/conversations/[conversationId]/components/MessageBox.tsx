@@ -28,13 +28,13 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
 
     const container = clsx('flex gap-3 p-4', isOwn && 'justify-end');
     const avatar = clsx(isOwn && 'order-2');
-    const body = clsx('flex flex-col max-w-[12rem] min-w-[9rem] sm:max-w-[16rem]', isOwn && 'items-end');
+    const body = clsx('flex flex-col max-w-[20rem] min-w-[10rem] sm:max-w-[18rem]', isOwn && 'items-end');
     const message = clsx('text-sm w-fit overflow-hidden', isOwn ? 'bg-sky-500 text-white min-w-full' : 'bg-gray-100 min-w-full', data.image ? 'rounded-xl p-0' : 'rounded py-2 px-3');
 
     return (
         <div className={container}>
             <div className={avatar}>
-                <Avatar user={data.sender} size={9} />
+                <Avatar user={data.sender} />
             </div>
             <div className={body}>
                 {groupScan && (
@@ -62,7 +62,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
                     ) : (
                         <div>
                             {data.body}
-                            <div className="text-xs text-gray-700 text-end">{format(new Date(data.createdAt), 'p')}</div>
+                            <div className="text-xs text-gray-700 text-end mt-1">{format(new Date(data.createdAt), 'p')}</div>
                         </div>
                     )}
                 </div>

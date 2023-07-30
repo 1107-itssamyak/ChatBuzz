@@ -6,11 +6,10 @@ import useActiveList from '../hooks/useActiveList';
 import Image from 'next/image';
 
 interface AvatarProps {
-    size: Number;
     user?: User;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ user, size }) => {
+const Avatar: React.FC<AvatarProps> = ({ user }) => {
     const { members } = useActiveList();
     const isActive = members.indexOf(user?.email!) !== -1;
 
@@ -22,13 +21,11 @@ const Avatar: React.FC<AvatarProps> = ({ user, size }) => {
 					inline-block 
 					rounded-full 
 					overflow-hidden
-					h-${size} 
-					w-${size} 
-					md:h-11 
-					md:w-11
+					h-9
+					w-9
 				`}
             >
-                <Image fill src={user?.image || '/images/placeholder.jpg'} alt="Avatar" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw" />
+                <Image fill src={user?.image || '/images/placeholder.jpg'} alt="Avatar" />
             </div>
             {isActive ? (
                 <span
@@ -43,8 +40,6 @@ const Avatar: React.FC<AvatarProps> = ({ user, size }) => {
 						right-0
 						h-2 
 						w-2 
-						md:h-3 
-						md:w-3
 					"
                 />
             ) : null}

@@ -2,7 +2,6 @@
 
 import { useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import { Conversation, Message, User } from '@prisma/client';
 import { format } from 'date-fns';
 import { useSession } from 'next-auth/react';
 import clsx from 'clsx';
@@ -78,12 +77,13 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({ data, selected }) => 
 				hover:bg-neutral-100
 				rounded-lg
 				transition
+                duration-100
 				cursor-pointer
 				`,
                 selected ? 'bg-neutral-100' : 'bg-white'
             )}
         >
-            {data.isGroup ? <AvatarGroup users={data.users} /> : <Avatar user={otherUser} size={9} />}
+            {data.isGroup ? <AvatarGroup users={data.users} /> : <Avatar user={otherUser} />}
             <div className="flex-1">
                 <div className="focus:outline-none">
                     <span className="absolute inset-0" aria-hidden="true" />

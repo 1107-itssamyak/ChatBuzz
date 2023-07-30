@@ -50,7 +50,7 @@ const MobileFooter: React.FC<MobileFooterProps> = ({ currentUser }) => {
                         px-4
                     "
                 >
-                    <Avatar user={currentUser} size={6} />
+                    <Avatar user={currentUser} />
                 </div>
             </div>
         </>
